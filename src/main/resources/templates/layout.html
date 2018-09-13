@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymealeaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Index de Sistemas -- CSCOM -- Banco da Amazônia</title>
+
+<link th:href="@{/images/faviconbasa.ico}" rel="shortcut icon"
+	type="image/x-icon" />
+
+<link th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}"
+	rel="stylesheet" type="text/css" />
+<link th:href="@{/webjars/bootstrap/4.1.3/scss/bootstrap.scss}"
+	rel="stylesheet" type="application/octet-stream" />
+<link th:href="@{/css/footer.css}" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+	<header th:replace="fragments/header :: header"> </header>
+
+	<section layout:fragment="corpo-central"> </section>
+
+	<footer th:replace="fragments/footer :: footer"> </footer>
+
+	<script th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
+
+	<script>
+		$(document).ready(function() {
+			$(".nav-item").click(function(e) {
+
+				$(".nav-item").removeClass("active");
+
+				$(e.target).addClass("active");
+			});
+		});
+	</script>
+
+</body>
+</html>
