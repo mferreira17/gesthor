@@ -3,42 +3,54 @@
 <html layout:decorate="~{layout}">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Index de Sistemas -- CSCOM -- Banco da Amazônia</title>
-<link th:href="@{/images/faviconbasa.ico}" rel="shortcut icon"
-	type="image/x-icon" />
 </head>
 <body>
 
 	<section layout:fragment="corpo-central">
 
-	<div class="container">
+	<div class="container table-responsive">
 
 		<table class="table table-striped">
 
 			<thead>
-				<tr>
-					<th>Sistema</th>
-					<th>Endereço</th>
+				<tr scope="row">
+					<th>Número</th>
+					<th>Ano</th>
+					<th>Gestor</th>
+					<th>Contratada</th>
+					<th>Status</th>
+					<th>Ações</th>
 				</tr>
 			</thead>
-			
+
 			<tbody>
 
-			<th:block th:each="sistema : ${sistemas}">
-			<th:block th:each="endereco : ${sistema.enderecos}">
-			
-			<tr scope="row">
-				<td scope="col"><a th:href="${endereco.link}" th:text="${sistema.nome}" th:title="${sistema.descricao}" target="_blank"></a></td>
-				<td scope="col" th:text="${endereco.link}"></td>
-			</tr>
-			
-			</th:block>
-			</th:block>
-		
+				<th:block th:each="sistema : ${sistemas}">
+					<th:block th:each="endereco : ${sistema.enderecos}">
+
+						<tr scope="row">
+							<td scope="col"><a th:href="${endereco.link}"
+								th:text="${sistema.nome}" th:title="${sistema.descricao}"
+								target="_blank"></a></td>
+							<td scope="col" th:text="${endereco.link}"></td>
+						</tr>
+
+					</th:block>
+				</th:block>
+
 			</tbody>
 
 		</table>
 
+	</div>
+	
+	<div class="row">
+		<div class="col-md-4 col-lg-2">
+			<button class="btn btn-primary btn-block"
+				onclick="javascript:window.location.href = '/contratos/novo'">
+				<i class="fas fa-plus-circle"></i>&nbsp Novo Contrato
+			</button>
+		</div>
 	</div>
 
 	</section>

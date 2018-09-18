@@ -4,11 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class GestorController {
+public class EmpresaController extends RootController{
 	
-	@GetMapping("/gestores/lista")
+	@Override
+	@GetMapping("/empresas/lista")
 	public String lista() {
-		return "gestor/lista";
+		return super.lista();
 	}
 
 }
