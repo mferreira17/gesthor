@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div th:fragment="formulario">
+
+		<form method="post" th:action="@{/empresas/salvar}"
+			th:object="${empresa}">
+
+			<div class="row">
+				<div class="form-group col-xs-6 row">
+					<input type="hidden" th:field="*{id}" name="id" /> <label
+						for="nome" class="">Nome</label> <input type="text"
+						class="form-control" id="nome" name="nome" th:field="*{nome}"
+						placeholder="Nome" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label for="ramo">Ramo</label> <input type="text"
+						class="form-control" id="ramo" name="ramo"
+						th:field="*{ramo}" placeholder="Ramo de Atividade"/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label for="ano">Telefone</label> <input type="text"
+						class="form-control" id="telefone" name="telefone"
+						th:field="*{telefone}" placeholder="(99) 9999 - 9999"/>
+				</div>
+			</div>
+
+			<input type="submit" value="Salvar" class="btn btn-primary" />
+			<button type="button" class="btn btn-danger"
+				onclick="window.location.href = 'lista';">Cancelar</button>
+
+		</form>
+	</div>
+</body>
+</html>

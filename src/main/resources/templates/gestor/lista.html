@@ -14,28 +14,38 @@
 
 			<thead>
 				<tr>
-					<th>Sistema</th>
-					<th>Endereço</th>
+					<th>Nome</th>
+					<th>Setor</th>
+					<th>Telefone</th>
 				</tr>
 			</thead>
-			
+
 			<tbody>
 
-			<th:block th:each="sistema : ${sistemas}">
-			<th:block th:each="endereco : ${sistema.enderecos}">
-			
-			<tr scope="row">
-				<td scope="col"><a th:href="${endereco.link}" th:text="${sistema.nome}" th:title="${sistema.descricao}" target="_blank"></a></td>
-				<td scope="col" th:text="${endereco.link}"></td>
-			</tr>
-			
-			</th:block>
-			</th:block>
-		
+				<th:block th:each="gestor : ${gestores}">
+
+					<tr scope="row">
+						<td scope="col" th:text="${gestor.nome}"></td>
+						<td scope="col" th:text="${gestor.setor}"></td>
+						<td scope="col" th:text="${gestor.telefone}"></td>
+					</tr>
+
+				</th:block>
+
 			</tbody>
 
 		</table>
 
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-offset-5 col-lg-2">
+				<button class="btn btn-primary btn-block"
+					onclick="javascript:window.location.href = '/gestores/novo'">
+					<i class="fas fa-plus-circle"></i>&nbsp Novo Gestor
+				</button>
+			</div>
+		</div>
 	</div>
 
 	</section>

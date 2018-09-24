@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div th:fragment="formulario">
+		
+		<form method="post" th:action="@{/gestores/salvar}" th:object="${gestor}">
+		
+		<input type="hidden" th:value="*{id}" name="id"/> 
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label for="numero">Número</label> <input type="text"
+						class="form-control" id="numero" name="contrato.numero" th:value="*{numero}"
+						placeholder="Número do Contrato" maxlength="7">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label for="ano">Ano</label> <input type="text"
+						class="form-control" id="ano" name="contrato.ano" th:value="*{ano}"
+						placeholder="Ano do Contrato" maxlength="4">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+
+					<label for="gestor">Gestor</label> <select name="contrato.gestor"
+						class="form-control" id="gestor" th:value="*{gestor}">
+						<option value=""><c:out value="SELECIONE" /></option>
+						<c:forEach items="${gestores}" var="gestor">
+							<option value="${gestor.id}"><c:out
+									value="${gestor.nome}" /></option>
+						</c:forEach>
+
+					</select> <a href="#">Adicionar novo Gestor </a>
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+
+					<label for="empresa">Contratada</label> <select
+						name="contrato.empresa" class="form-control" id="empresa" th:value="*{empresa}">
+						<option value=""><c:out value="SELECIONE" /></option>
+						<c:forEach items="${empresas}" var="empresa">
+							<option value="${empresa.id}"><c:out
+									value="${empresa.nome}" /></option>
+						</c:forEach>
+					</select> <a href="#">Adicionar nova Empresa </a>
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label for="objeto">Objeto</label> <input type="text"
+						class="form-control" id="objeto" maxlength="100" th:value="*{objeto}"
+						name="contrato.objeto" placeholder="Objeto do Contrato">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label for="valor">Valor do Contrato</label> <input type="text" th:value="*{valor}"
+						class="form-control money" id="valor" name="contrato.valor"
+						placeholder="Valor do Contrato">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label for="dataAssinatura">Data de Assinatura</label> <input
+						type="text" name="contrato.dataAssinatura" id="dataAssinatura"
+						class="form-control data" placeholder="DD/MM/AAAA" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label for="inicioVigencia">Inicio de Vigência do Contrato</label>
+					<input type="text" name="contrato.inicioVigencia"
+						id="inicioVigencia" class="form-control data"
+						placeholder="DD/MM/AAAA" />
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label for="finalVigencia">Final de Vigência do Contrato</label> <input
+						type="text" name="contrato.finalVigencia" id="finalVigencia"
+						class="form-control data" placeholder="DD/MM/AAAA" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+
+					<label for="status">Status do Contrato</label> <select
+						name="contrato.status" id="status" class="form-control">
+						<option><c:out value="SELECIONE" /></option>
+						<c:forEach items="${status}" var="status">
+							<option value="${status}"><c:out
+									value="${status.descricao}" /></option>
+						</c:forEach>
+					</select>
+
+				</div>
+			</div>
+
+			<input type="submit" value="Salvar" class="btn btn-primary" />
+			<button type="button" class="btn btn-danger"
+				onclick="window.location.href = 'lista';">Cancelar</button>
+
+
+		</form>
+	</div>
+</body>
+</html>
