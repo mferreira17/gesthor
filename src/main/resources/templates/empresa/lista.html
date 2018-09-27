@@ -14,22 +14,22 @@
 
 			<thead>
 				<tr>
-					<th>Sistema</th>
-					<th>Endereço</th>
+					<th>Nome</th>
+					<th>Ramo</th>
+					<th>Telefone</th>
 				</tr>
 			</thead>
 			
 			<tbody>
 
-			<th:block th:each="sistema : ${sistemas}">
-			<th:block th:each="endereco : ${sistema.enderecos}">
+			<th:block th:each="empresa : ${empresas}">
 			
 			<tr scope="row">
-				<td scope="col"><a th:href="${endereco.link}" th:text="${sistema.nome}" th:title="${sistema.descricao}" target="_blank"></a></td>
-				<td scope="col" th:text="${endereco.link}"></td>
+				<td scope="col" th:text="${empresa.nome}"></td>
+				<td scope="col" th:text="${empresa.ramo}"></td>
+				<td scope="col" th:text="${empresa.telefone}"></td>
 			</tr>
 			
-			</th:block>
 			</th:block>
 		
 			</tbody>
@@ -38,7 +38,18 @@
 
 	</div>
 
-	</section>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-offset-5 col-lg-2">
+			<button class="btn btn-primary btn-block"
+				onclick="javascript:window.location.href = '/empresas/novo'">
+				<i class="fas fa-plus-circle"></i>&nbsp Nova Empresa
+			</button>
+		</div>
+	</div>
+	</div>
+
+</section>
 
 </body>
 </html>

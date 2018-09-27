@@ -25,39 +25,44 @@
 
 			<tbody>
 
-				<tr scope="row">
-					<td scope="col"><a href="#" title="Visualizar Dados do Contrato">123456</a></td>
-					<td scope="col">2018</td>
-					<td scope="col">ANDERSON BRAGA</td>
-					<td scope="col">ABC DO BRASIL LTDA</td>
-					<td scope="col">VIGENTE</td>
-					<td scope="col"><a href="#">OCORRENCIAS</a> <a href="#">CANCELAR CONTRATO</a> <a href="#">EDITAR CONTRATO</a> </td>
-				</tr>
-
-				</th:block>
+				<th:block th:each="contrato : ${contratos}">
+				
+					<tr scope="row">
+						<td scope="col"><a href="#" data-tippy="Clique para visualizar este contrato"
+							title="Visualizar Dados do Contrato" th:text="${contrato.numero}"></a></td>
+						<td scope="col" th:text="${contrato.ano}"></td>
+						<td scope="col" th:text="${contrato.gestor.nome}"></td>
+						<td scope="col" th:text="${contrato.empresa.nome}"></td>
+						<td scope="col" th:text="${contrato.status}"></td>
+						<td scope="col">
+							<a href="#" data-tippy="Visualizar Ocorrências"><i class="fas fa-search"></i></a>&nbsp
+							<a href="#" data-tippy="Editar Contrato"><i class="fas fa-edit"></i></a>&nbsp
+							<a href="#" data-tippy="Cancelar Contrato"><i class="fas fa-ban"></i></a>
+						</td>
+							
+					</tr>
+				
 				</th:block>
 
 			</tbody>
 
 		</table>
 
+	</div>
+
 	<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-offset-5 col-lg-2">
-			<button class="btn btn-primary btn-block"
-				onclick="javascript:window.location.href = '/contratos/novo'">
-				<i class="fas fa-plus-circle"></i>&nbsp Novo Contrato
-			</button>
+		<div class="row">
+			<div class="col-md-offset-5 col-lg-2">
+				<button class="btn btn-primary btn-block"
+					onclick="javascript:window.location.href = '/contratos/novo'">
+					<i class="fas fa-plus-circle"></i>&nbsp Novo Contrato
+				</button>
+			</div>
 		</div>
 	</div>
-	</div>
-	
+
 	<footer th:replace="fragments/footer :: footer"> </footer>
-
-	</div>
-
-	</section>
 	
-
+	</section>
 </body>
 </html>
