@@ -35,7 +35,7 @@
 						<td scope="col" th:text="${contrato.empresa.nome}"></td>
 						<td scope="col" th:text="${contrato.status}"></td>
 						<td scope="col">
-							<a href="#" data-tippy="Visualizar Ocorrências"><i class="fas fa-search"></i></a>&nbsp
+							<a th:href="@{/ocorrencias/lista/{id} (id=${contrato.id})}" data-tippy="Visualizar Ocorrências"><i class="fas fa-search"></i></a>&nbsp
 							<a href="#" data-tippy="Editar Contrato"><i class="fas fa-edit"></i></a>&nbsp
 							<a href="#" data-tippy="Cancelar Contrato"><i class="fas fa-ban"></i></a>
 						</td>

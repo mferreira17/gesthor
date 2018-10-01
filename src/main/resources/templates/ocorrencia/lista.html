@@ -14,28 +14,39 @@
 
 			<thead>
 				<tr>
-					<th>Sistema</th>
-					<th>Endereço</th>
+					<th>Contrato</th>
+					<th>Data da Ocorrência</th>
+					<th>Descrição</th>
 				</tr>
 			</thead>
 			
 			<tbody>
 
-			<th:block th:each="sistema : ${sistemas}">
-			<th:block th:each="endereco : ${sistema.enderecos}">
+			<th:block th:each="ocorrencia : ${ocorrencias}">
 			
 			<tr scope="row">
-				<td scope="col"><a th:href="${endereco.link}" th:text="${sistema.nome}" th:title="${sistema.descricao}" target="_blank"></a></td>
-				<td scope="col" th:text="${endereco.link}"></td>
+				<td scope="col" th:text="${ocorrencia.contrato.numero}"></td>
+				<td scope="col" th:text="${ocorrencia.dataOcorrencia}"></td>
+				<td scope="col" th:text="${ocorrencia.descricao}"></td>
 			</tr>
 			
-			</th:block>
 			</th:block>
 		
 			</tbody>
 
 		</table>
 
+	</div>
+	
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-offset-5 col-lg-2">
+				<button class="btn btn-primary btn-block"
+					onclick="javascript:window.location.href = '/gestores/novo'">
+					<i class="fas fa-plus-circle"></i>&nbsp Nova Ocorrência
+				</button>
+			</div>
+		</div>
 	</div>
 
 	</section>

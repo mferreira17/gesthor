@@ -41,7 +41,7 @@ public class ContratoController{
 	@PostMapping("/contratos/salvar")
 	public String salvar(Contrato contrato) {
 		contratoRepository.save(contrato);
-		return lista();
+		return "redirect:/contratos/lista";
 	}
 	
 	@ModelAttribute("empresas")
