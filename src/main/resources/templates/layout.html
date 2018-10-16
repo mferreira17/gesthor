@@ -17,6 +17,9 @@
 	
 <link th:href="@{/webjars/font-awesome/5.2.0/css/all.css}"
 	rel="stylesheet" type="text/css" />
+	
+<link th:href="@{/webjars/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css}"
+	rel="stylesheet" type="text/css" />
 		
 <link th:href="@{/css/footer.css}" rel="stylesheet" type="text/css" />
 
@@ -34,11 +37,19 @@
 <script th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
 <script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
 <script th:src="@{/webjars/jquery-mask-plugin/1.14.15/dist/jquery.mask.min.js}"></script>
+<script th:src="@{/webjars/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js}"></script>
+<script th:src="@{/webjars/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.pt-BR.min.js}"></script>
 <script type="text/javascript">
 			
 			$(document).ready(function(){
 				$(".data").mask("99/99/9999");
 				$('.money').mask('000.000.000.000.000,00', {reverse: true});
+				$('.datepicker').datepicker({
+					format: 'dd/mm/yyyy',
+					language:'pt-BR',
+					todayBtn:"linked",
+					todayHighlight:true
+				});
 			});
 	
 			</script>		
