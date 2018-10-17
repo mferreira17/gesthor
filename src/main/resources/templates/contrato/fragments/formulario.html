@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymealeaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div th:fragment="formulario">
+
+		<form method="post" th:action="@{/contratos/salvar}"
+			th:object="${contrato}">
+
+			<div class="row">
+				<div class="form-group col-xs-6 row">
+					<input type="hidden" th:field="*{id}" name="id" /> <label
+						for="numero" class="">Número</label> <input type="text"
+						class="form-control" id="numero" name="contrato.numero"
+						th:field="*{numero}" placeholder="Número do Contrato"
+						maxlength="7">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label for="ano">Ano</label> <input type="text"
+						class="form-control" id="ano" name="contrato.ano"
+						th:field="*{ano}" placeholder="Ano do Contrato" maxlength="4">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+
+					<label for="gestor">Gestor</label> <select name="contrato.gestor"
+						class="form-control" id="gestor" th:field="*{gestor}">
+
+						<option value="">Selecione...</option>
+
+						<th:block th:each="gestor : ${gestores}">
+							<option th:value="${gestor.id}" th:text="${gestor.nome}"></option>
+						</th:block>
+
+					</select> <a href="#">Adicionar novo Gestor </a>
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+
+					<label for="empresa">Contratada</label> <select
+						name="contrato.empresa" class="form-control" id="empresa"
+						th:field="*{empresa}">
+
+						<option value="">Selecione...</option>
+
+						<th:block th:each="empresa : ${empresas}">
+							<option th:value="${empresa.id}" th:text="${empresa.nome}"></option>
+						</th:block>
+
+					</select> <a href="#">Adicionar nova Empresa </a>
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label for="objeto">Objeto</label> <input type="text"
+						class="form-control" id="objeto" maxlength="100"
+						th:field="*{objeto}" name="contrato.objeto"
+						placeholder="Objeto do Contrato"/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label for="valor">Valor do Contrato</label> <input type="text"
+						th:field="*{valor}" class="form-control money" id="valor"
+						 placeholder="Valor do Contrato"/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label for="dataAssinatura">Data de Assinatura</label> <input
+						th:field="*{dataAssinatura}" type="text"
+						name="contrato.dataAssinatura" id="dataAssinatura"
+						class="form-control data datepicker" placeholder="DD/MM/AAAA" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label for="inicioVigencia">Inicio de Vigência do Contrato</label>
+					<input th:field="*{inicioVigencia}" type="text"
+						name="contrato.inicioVigencia" id="inicioVigencia"
+						class="form-control data" placeholder="DD/MM/AAAA" />
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+					<label for="finalVigencia">Final de Vigência do Contrato</label> <input
+						th:field="*{finalVigencia}" type="text"
+						name="contrato.finalVigencia" id="finalVigencia"
+						class="form-control data" placeholder="DD/MM/AAAA" />
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group col-xs-6">
+
+					<label for="status">Status do Contrato</label> <select
+						name="contrato.status" id="status" class="form-control"
+						th:field="*{status}">
+
+						<option value="">Selecione...</option>
+
+						<th:block th:each="status : ${status}">
+							<option th:value="${status}" th:text="${status}"></option>
+						</th:block>
+
+					</select>
+
+				</div>
+			</div>
+
+			<input type="submit" value="Salvar" class="btn btn-primary" />
+			<button type="button" class="btn btn-danger"
+				onclick="window.location.href = 'lista';">Cancelar</button>
+				
+
+		</form>
+	
+			
+	
+	</div>
+</body>
+</html>
