@@ -25,7 +25,7 @@
 			<th:block th:each="ocorrencia : ${ocorrencias}">
 			
 			<tr scope="row">
-				<td scope="col" th:text="${ocorrencia.contrato.numero}"></td>
+				<td scope="col" th:text="${ocorrencia.contrato.numero}"></td> <div th:with="numeroContrato=${ocorrencia.contrato.numero}"></div>
 				<td scope="col" th:text="${ocorrencia.dataOcorrencia}"></td>
 				<td scope="col" th:text="${ocorrencia.descricao}"></td>
 			</tr>
@@ -42,7 +42,7 @@
 		<div class="row">
 			<div class="col-md-offset-5 col-lg-2">
 				<button class="btn btn-primary btn-block"
-					onclick="javascript:window.location.href = '/gestores/novo'">
+					onclick="javascript:window.location.href = '/ocorrencias/novo/'">
 					<i class="fas fa-plus-circle"></i>&nbsp Nova Ocorrência
 				</button>
 			</div>
