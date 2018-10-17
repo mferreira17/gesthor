@@ -1,1 +1,1 @@
-web: java -jar target/dependency/webapp-runner.jar --port $PORT target/gesthor.jar
+web: java -Dserver.port=$PORT -jar target/gesthor.jar
