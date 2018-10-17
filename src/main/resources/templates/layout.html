@@ -25,7 +25,6 @@
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
 
-
 <link rel="icon" th:href="@{/images/favicon.ico}"/>
 
 </head>
@@ -47,8 +46,10 @@
 <script type="text/javascript">
 			
 			$(document).ready(function(){
+				
 				$(".data").mask("99/99/9999");
 				$('.money').mask('000.000.000.000.000,00', {reverse: true});
+				
 				$('.datepicker').datepicker({
 					format: 'dd/mm/yyyy',
 					language:'pt-BR',

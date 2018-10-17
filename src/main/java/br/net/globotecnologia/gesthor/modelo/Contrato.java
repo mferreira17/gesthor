@@ -15,6 +15,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+import org.springframework.format.annotation.NumberFormat.Style;
+
 @Entity
 public class Contrato {
 
@@ -30,17 +34,21 @@ public class Contrato {
 
 	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date dataAssinatura;
 
 	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date inicioVigencia;
 
 	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date finalVigencia;
 
-	@Column(scale = 2, length = 10, nullable = false)
+	@Column(precision=2,scale=3, length = 10, columnDefinition="DECIMAL", nullable = false)
+	@NumberFormat(style=Style.NUMBER, pattern="#.###.###.###,##")
 	private BigDecimal valor;
 
 	@Column(nullable = false)

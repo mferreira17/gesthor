@@ -1,10 +1,16 @@
 package br.net.globotecnologia.gesthor.controlador;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomNumberEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -18,6 +24,8 @@ import br.net.globotecnologia.gesthor.repositorio.GestorRepository;
 
 @Controller
 public class ContratoController{
+	
+	private Integer totalContratos = 0;
 	
 	@Autowired
 	private ContratoRepository contratoRepository;
@@ -56,7 +64,14 @@ public class ContratoController{
 	
 	@ModelAttribute("contratos")
 	public List<Contrato> getListaContratos(){
-		return (List<Contrato>) contratoRepository.findAll();
+		List<Contrato> contratos = (List<Contrato>) contratoRepository.findAll();
+		totalContratos = contratos.size();
+		return contratos;
+	}
+	
+	@ModelAttribute("totalContratos")
+	public Integer getTotalContratos() {
+		return totalContratos;
 	}
 	
 	@ModelAttribute("status")
@@ -64,6 +79,14 @@ public class ContratoController{
 		return Status.values();
 	}
 	
-	
+	@InitBinder
+	public void bigDecimalConverter(WebDataBinder binder) {
+		DecimalFormat df = new DecimalFormat();
+	    DecimalFormatSymbols dfs = new DecimalFormatSymbols();
+	    dfs.setGroupingSeparator('.');
+	    dfs.setDecimalSeparator(',');
+	    df.setDecimalFormatSymbols(dfs);
+	    binder.registerCustomEditor(BigDecimal.class, new CustomNumberEditor(BigDecimal.class, df, true));
+	}
 
 }
