@@ -90,11 +90,13 @@
 			<artifactId>bootstrap-datepicker</artifactId>
 			<version>1.8.0</version>
 		</dependency>
-		<!-- <dependency> -->
-		<!-- <groupId>com.github.jsimone</groupId> -->
-		<!-- <artifactId>webapp-runner</artifactId> -->
-		<!-- <version>8.5.11.3</version> -->
-		<!-- </dependency> -->
+		
+		<!-- <dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>6.7.0</version>
+		</dependency> -->
+
 	</dependencies>
 
 	<build>
