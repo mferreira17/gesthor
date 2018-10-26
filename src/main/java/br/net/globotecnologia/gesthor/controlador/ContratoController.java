@@ -1,17 +1,16 @@
 package br.net.globotecnologia.gesthor.controlador;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.List;
-import java.util.Scanner;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomNumberEditor;
-import org.springframework.context.ApplicationContext;
-import org.springframework.core.io.Resource;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +26,7 @@ import br.net.globotecnologia.gesthor.repositorio.ContratoRepository;
 import br.net.globotecnologia.gesthor.repositorio.EmpresaRepository;
 import br.net.globotecnologia.gesthor.repositorio.GestorRepository;
 import br.net.globotecnologia.gesthor.servicos.RelatorioService;
+import net.sf.jasperreports.engine.JRException;
 
 @Controller
 public class ContratoController{
@@ -43,20 +43,11 @@ public class ContratoController{
 	private GestorRepository gestorRepository;
 	
 	@Autowired
-	private ApplicationContext context;
-	
-	@Autowired
 	private RelatorioService relService;
 	
 	
 	@GetMapping("/contratos/lista")
 	public String lista(){
-		try {
-			doRelatorio();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return "contrato/lista";
 	}
 	
@@ -108,13 +99,11 @@ public class ContratoController{
 	    binder.registerCustomEditor(BigDecimal.class, new CustomNumberEditor(BigDecimal.class, df, true));
 	}
 	
-	public void doRelatorio() throws FileNotFoundException, IOException{
-		/*Resource resource = context.getResource("classpath:resources/application.properties");
-		Scanner scan = new Scanner(resource.getFile());
-		while(scan.hasNext()){
-			System.out.println(scan.nextLine());
-		}*/
-		//relService.doRelatorio();
+	@GetMapping(value="/contratos/relatorio")
+	public void doRelatorio(HttpServletResponse response) throws IOException{
+		response.setContentType(MediaType.APPLICATION_PDF_VALUE);
+		response.setHeader("Content-Disposition", "inline; filename=total_contratos.pdf");
+		relService.doRelatorio(response.getOutputStream());
 	}
 
 }
