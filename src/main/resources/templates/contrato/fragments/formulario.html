@@ -17,7 +17,7 @@
 						for="numero" class="">Número</label> <input type="text"
 						class="form-control" id="numero" name="contrato.numero"
 						th:field="*{numero}" placeholder="Número do Contrato"
-						maxlength="7">
+						maxlength="7" required/>
 				</div>
 			</div>
 
@@ -25,7 +25,7 @@
 				<div class="form-group col-xs-6">
 					<label for="ano">Ano</label> <input type="text"
 						class="form-control" id="ano" name="contrato.ano"
-						th:field="*{ano}" placeholder="Ano do Contrato" maxlength="4">
+						th:field="*{ano}" placeholder="Ano do Contrato" maxlength="4" required/>
 				</div>
 			</div>
 
@@ -33,7 +33,7 @@
 				<div class="form-group col-xs-6">
 
 					<label for="gestor">Gestor</label> <select name="contrato.gestor"
-						class="form-control" id="gestor" th:field="*{gestor}">
+						class="form-control" id="gestor" th:field="*{gestor}" required>
 
 						<option value="">Selecione...</option>
 
@@ -41,7 +41,7 @@
 							<option th:value="${gestor.id}" th:text="${gestor.nome}"></option>
 						</th:block>
 
-					</select> <a href="#">Adicionar novo Gestor </a>
+					</select> 
 
 				</div>
 			</div>
@@ -51,7 +51,7 @@
 
 					<label for="empresa">Contratada</label> <select
 						name="contrato.empresa" class="form-control" id="empresa"
-						th:field="*{empresa}">
+						th:field="*{empresa}" required>
 
 						<option value="">Selecione...</option>
 
@@ -59,7 +59,7 @@
 							<option th:value="${empresa.id}" th:text="${empresa.nome}"></option>
 						</th:block>
 
-					</select> <a href="#">Adicionar nova Empresa </a>
+					</select> 
 
 				</div>
 			</div>
@@ -69,15 +69,15 @@
 					<label for="objeto">Objeto</label> <input type="text"
 						class="form-control" id="objeto" maxlength="100"
 						th:field="*{objeto}" name="contrato.objeto"
-						placeholder="Objeto do Contrato"/>
+						placeholder="Objeto do Contrato" required/>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="form-group col-xs-6">
-					<label for="valor">Valor do Contrato</label> <input type="text"
+					<label for="valor">Valor do Contrato (R$)</label> <input type="text"
 						th:field="*{valor}" class="form-control money" id="valor"
-						 placeholder="Valor do Contrato"/>
+						 placeholder="Valor do Contrato" required/>
 				</div>
 			</div>
 
@@ -86,7 +86,7 @@
 					<label for="dataAssinatura">Data de Assinatura</label> <input
 						th:field="*{dataAssinatura}" type="text"
 						name="contrato.dataAssinatura" id="dataAssinatura"
-						class="form-control data datepicker" placeholder="DD/MM/AAAA" />
+						class="form-control data datepicker" placeholder="DD/MM/AAAA" required />
 				</div>
 			</div>
 
@@ -95,7 +95,7 @@
 					<label for="inicioVigencia">Inicio de Vigência do Contrato</label>
 					<input th:field="*{inicioVigencia}" type="text"
 						name="contrato.inicioVigencia" id="inicioVigencia"
-						class="form-control data" placeholder="DD/MM/AAAA" />
+						class="form-control data datepicker" placeholder="DD/MM/AAAA" required />
 
 				</div>
 			</div>
@@ -105,7 +105,7 @@
 					<label for="finalVigencia">Final de Vigência do Contrato</label> <input
 						th:field="*{finalVigencia}" type="text"
 						name="contrato.finalVigencia" id="finalVigencia"
-						class="form-control data" placeholder="DD/MM/AAAA" />
+						class="form-control data datepicker" placeholder="DD/MM/AAAA" required/>
 				</div>
 			</div>
 
@@ -114,7 +114,7 @@
 
 					<label for="status">Status do Contrato</label> <select
 						name="contrato.status" id="status" class="form-control"
-						th:field="*{status}">
+						th:field="*{status}" required>
 
 						<option value="">Selecione...</option>
 

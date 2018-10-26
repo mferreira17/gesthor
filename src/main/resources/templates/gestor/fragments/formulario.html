@@ -15,7 +15,7 @@
 				<div class="form-group col-xs-6">
 					<label for="nome">Nome</label> <input type="text"
 						class="form-control" id="numero" name="nome" th:field="*{nome}"
-						placeholder="Nome"/>
+						placeholder="Nome" required/>
 				</div>
 			</div>
 
@@ -23,7 +23,7 @@
 				<div class="form-group col-xs-6">
 					<label for="setor">Setor</label> <input type="text"
 						class="form-control" id="ano" name="setor" th:field="*{setor}"
-						placeholder="setor"/>
+						placeholder="setor" required/>
 				</div>
 			</div>
 
@@ -31,8 +31,8 @@
 				<div class="form-group col-xs-6">
 
 					<label for="telefone">Telefone</label> <input type="text"
-						class="form-control" id="telefone" name="telefone" th:field="*{telefone}"
-						placeholder="Telefone" />
+						class="form-control phone" id="telefone" name="telefone" th:field="*{telefone}"
+						placeholder="(99) 99999-9999" />
 
 				</div>
 			</div>
