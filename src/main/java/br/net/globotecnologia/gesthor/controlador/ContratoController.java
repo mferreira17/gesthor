@@ -26,7 +26,6 @@ import br.net.globotecnologia.gesthor.repositorio.ContratoRepository;
 import br.net.globotecnologia.gesthor.repositorio.EmpresaRepository;
 import br.net.globotecnologia.gesthor.repositorio.GestorRepository;
 import br.net.globotecnologia.gesthor.servicos.RelatorioService;
-import net.sf.jasperreports.engine.JRException;
 
 @Controller
 public class ContratoController{
