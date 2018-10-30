@@ -23,7 +23,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
-	
+
 	<!-- Repositório necessário para as dependencias exclusivas do jasper reports -->
 	<repositories>
 		<repository>
@@ -97,11 +97,17 @@
 			<artifactId>bootstrap-datepicker</artifactId>
 			<version>1.8.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
 			<version>6.7.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.w3c.jigsaw</groupId>
+			<artifactId>jigsaw</artifactId>
+			<version>2.2.6</version>
 		</dependency>
 
 	</dependencies>
@@ -122,13 +128,13 @@
 		<name>Globotec</name>
 		<url>www.globotec.net.br</url>
 	</organization>
-	
+
 	<scm>
 		<url>https://github.com/mferreira17/gesthor.git</url>
 		<developerConnection>Márcio Ferreira</developerConnection>
 		<tag>gesthor</tag>
 	</scm>
-	
+
 	<url>https://gesthor.herokuapp.com/</url>
 
 </project>

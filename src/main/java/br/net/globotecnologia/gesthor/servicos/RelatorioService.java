@@ -20,7 +20,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 @Service
 public class RelatorioService {
 
-	@Value("classpath:/static/relatorios/gesthorcontratos.jasper")
+	@Value("classpath:/templates/relatorios/gesthorcontratos.jasper")
 	private Resource resource;
 
 	@Autowired
