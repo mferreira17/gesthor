@@ -1,4 +1,4 @@
-package br.net.globotecnologia.gesthor.servicos;
+package br.net.globotecnologia.gesthor.servicos.relatorios;
 
 import java.io.IOException;
 import java.io.OutputStream;

@@ -25,7 +25,7 @@ import br.net.globotecnologia.gesthor.modelo.Status;
 import br.net.globotecnologia.gesthor.repositorio.ContratoRepository;
 import br.net.globotecnologia.gesthor.repositorio.EmpresaRepository;
 import br.net.globotecnologia.gesthor.repositorio.GestorRepository;
-import br.net.globotecnologia.gesthor.servicos.RelatorioService;
+import br.net.globotecnologia.gesthor.servicos.relatorios.RelatorioService;
 
 @Controller
 public class ContratoController{
