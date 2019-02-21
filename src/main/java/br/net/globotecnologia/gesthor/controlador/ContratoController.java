@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+//import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomNumberEditor;
 import org.springframework.http.MediaType;
@@ -45,6 +46,7 @@ public class ContratoController{
 	private RelatorioService relService;
 	
 	
+	//@RequiresRoles("RL_GESTOR")
 	@GetMapping("/contratos/lista")
 	public String lista(){
 		return "contrato/lista";
@@ -88,7 +90,7 @@ public class ContratoController{
 		return Status.values();
 	}
 	
-	@InitBinder
+	/*@InitBinder
 	public void bigDecimalConverter(WebDataBinder binder) {
 		DecimalFormat df = new DecimalFormat();
 	    DecimalFormatSymbols dfs = new DecimalFormatSymbols();
@@ -96,7 +98,7 @@ public class ContratoController{
 	    dfs.setDecimalSeparator(',');
 	    df.setDecimalFormatSymbols(dfs);
 	    binder.registerCustomEditor(BigDecimal.class, new CustomNumberEditor(BigDecimal.class, df, true));
-	}
+	}*/
 	
 	@GetMapping(value="/contratos/relatorio")
 	public void doRelatorio(HttpServletResponse response) throws IOException{

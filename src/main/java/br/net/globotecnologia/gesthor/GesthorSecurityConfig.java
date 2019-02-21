@@ -1,42 +1,40 @@
 package br.net.globotecnologia.gesthor;
 
-import javax.sql.DataSource;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity(debug = false)
 public class GesthorSecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private DataSource dataSource;
-
-	@Bean
 	@Override
-	protected UserDetailsService userDetailsService() {
-		UserDetails details = User.withDefaultPasswordEncoder().username("user").password("pass").roles("USER").build();
-		return new InMemoryUserDetailsManager(details);
+	protected void configure(HttpSecurity http) throws Exception {
+		
+		/*
+		 * Clausula permitindo que qualquer usuário atinga a raiz da aplicação (/),
+		 * porém apenas usuarios autenticados(logados) e com a ROLE GESTOR possam acessar o que estiver
+		 * abaixo de /contratos, /empresas e /gestores. Ao final pede para adicionar o formulario de login
+		 */
+		http.authorizeRequests().
+			antMatchers("/").permitAll().
+			antMatchers("/contratos/**","/empresas/**","/gestores/**").hasRole("GESTOR").
+			and().
+			formLogin();
 	}
-
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-
-		auth.jdbcAuthentication().dataSource(dataSource)
-				.usersByUsernameQuery("select username, password, enabled"
-			            + " from users where username=?")
-				.authoritiesByUsernameQuery("select username, authority " + "from authorities where username=?")
-				.passwordEncoder(new BCryptPasswordEncoder());
-
+		/* 
+		 * Definido o encoder de senha, estou definindo um usuario gestor , com senha gestor e role GESTOR
+		 */
+		
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		auth.inMemoryAuthentication().passwordEncoder(encoder).withUser("gestor").password(encoder.encode("gestor")).roles("GESTOR");
 	}
 
+	
 }
