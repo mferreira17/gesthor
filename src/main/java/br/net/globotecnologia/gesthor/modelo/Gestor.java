@@ -5,10 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-import br.net.globotecnologia.gesthor.modelo.autenticacao.Usuario;
 
 @Entity
 public class Gestor {
@@ -26,9 +22,6 @@ public class Gestor {
 	@Column
 	private String telefone;
 	
-	@ManyToOne
-	@JoinColumn(name="usua_id", referencedColumnName="id", nullable=false)
-	private Usuario usuario;
 
 	public Long getId() {
 		return id;
