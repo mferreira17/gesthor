@@ -4,6 +4,7 @@
 	xmlns:th="http://www.thymealeaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 </head>
 <body>
 	<div th:fragment="formulario">
@@ -17,7 +18,7 @@
 						for="numero" class="">Número</label> <input type="text"
 						class="form-control" id="numero" name="contrato.numero"
 						th:field="*{numero}" placeholder="Número do Contrato"
-						maxlength="7" required/>
+						maxlength="7" required />
 				</div>
 			</div>
 
@@ -39,6 +40,23 @@
 
 						<th:block th:each="gestor : ${gestores}">
 							<option th:value="${gestor.id}" th:text="${gestor.nome}"></option>
+						</th:block>
+
+					</select> 
+
+				</div>
+			</div>
+		
+			<div class="row" >
+				<div class="form-group col-xs-6" id="divFical" hidden>
+
+					<label for="gestor">Fiscal</label> <select name="contrato.fiscal"
+						class="form-control" id="fiscal" th:field="*{fiscal}" required>
+
+						<option value="">Selecione...</option>
+
+						<th:block th:each="fiscal : ${gestores}">
+							<option th:value="${fiscal.id}" th:text="${fiscal.nome}"></option>
 						</th:block>
 
 					</select> 
@@ -135,6 +153,7 @@
 		</form>
 	
 			
+
 	
 	</div>
 </body>

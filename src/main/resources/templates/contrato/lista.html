@@ -17,6 +17,7 @@
 					<th>Número</th>
 					<th>Ano</th>
 					<th>Gestor</th>
+					<th>Fiscal</th>
 					<th>Contratada</th>
 					<th>Status</th>
 					<th>Ações</th>
@@ -32,6 +33,7 @@
 							th:text="${contrato.numero}"></a></td>
 						<td scope="col" th:text="${contrato.ano}"></td>
 						<td scope="col" th:text="${contrato.gestor.nome}"></td>
+						<td scope="col" th:text="${contrato.fiscal.nome}"></td>
 						<td scope="col" th:text="${contrato.empresa.nome}"></td>
 						<td scope="col" th:text="${contrato.status}"></td>
 						<td scope="col">
