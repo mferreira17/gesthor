@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar target/gesthor.jar
+web: java -Dserver.port=$PORT -Dspring.profiles.active=prd -jar target/gesthor.jar
