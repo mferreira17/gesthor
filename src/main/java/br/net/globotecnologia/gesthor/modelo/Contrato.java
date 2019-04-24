@@ -22,138 +22,172 @@ import org.springframework.format.annotation.NumberFormat.Style;
 @Entity
 public class Contrato {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-	@Column(unique = true, nullable = false, length = 7)
-	private Integer numero;
+    @Column(unique = true, nullable = false, length = 7)
+    private Integer numero;
 
-	@Column(length = 4, nullable = false)
-	private Integer ano;
+    @Column(length = 4, nullable = false)
+    private Integer ano;
 
-	@Column(nullable = false)
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="dd/MM/yyyy")
-	private Date dataAssinatura;
+    @Column(nullable = false)
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date dataAssinatura;
 
-	@Column(nullable = false)
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="dd/MM/yyyy")
-	private Date inicioVigencia;
+    @Column(nullable = false)
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date inicioVigencia;
 
-	@Column(nullable = false)
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="dd/MM/yyyy")
-	private Date finalVigencia;
+    @Column(nullable = false)
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date finalVigencia;
 
-	@Column(precision=2,scale=3, length = 10, columnDefinition="DECIMAL", nullable = false)
-	@NumberFormat(style=Style.NUMBER, pattern="#.###.###.###,##")
-	private BigDecimal valor;
+    @Column(precision = 2, scale = 3, length = 10, columnDefinition = "DECIMAL", nullable = false)
+    @NumberFormat(style = Style.NUMBER, pattern = "#.###.###.###,##")
+    private BigDecimal valor;
 
-	@Column(nullable = false)
-	@Enumerated(EnumType.STRING)
-	private Status status;
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
-	@Column(nullable = false, length = 200)
-	private String objeto;
+    @Column(nullable = false, length = 200)
+    private String objeto;
 
-	@ManyToOne
-	@JoinColumn(nullable = false)
-	private Empresa empresa;
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Empresa empresa;
 
-	@ManyToOne
-	@JoinColumn(nullable = false)
-	private Gestor gestor;
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Gestor gestor;
 
-	public Long getId() {
-		return id;
-	}
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Gestor fiscal;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
 
-	public Integer getNumero() {
-		return numero;
-	}
+        return this.id;
+    }
 
-	public void setNumero(Integer numero) {
-		this.numero = numero;
-	}
+    public void setId(final Long id) {
 
-	public Integer getAno() {
-		return ano;
-	}
+        this.id = id;
+    }
 
-	public void setAno(Integer ano) {
-		this.ano = ano;
-	}
+    public Integer getNumero() {
 
-	public Date getDataAssinatura() {
-		return dataAssinatura;
-	}
+        return this.numero;
+    }
 
-	public void setDataAssinatura(Date dataAssinatura) {
-		this.dataAssinatura = dataAssinatura;
-	}
+    public void setNumero(final Integer numero) {
 
-	public Date getInicioVigencia() {
-		return inicioVigencia;
-	}
+        this.numero = numero;
+    }
 
-	public void setInicioVigencia(Date inicioVigencia) {
-		this.inicioVigencia = inicioVigencia;
-	}
+    public Integer getAno() {
 
-	public Date getFinalVigencia() {
-		return finalVigencia;
-	}
+        return this.ano;
+    }
 
-	public void setFinalVigencia(Date finalVigencia) {
-		this.finalVigencia = finalVigencia;
-	}
+    public void setAno(final Integer ano) {
 
-	public BigDecimal getValor() {
-		return valor;
-	}
+        this.ano = ano;
+    }
 
-	public void setValor(BigDecimal valor) {
-		this.valor = valor;
-	}
+    public Date getDataAssinatura() {
 
-	public Status getStatus() {
-		return status;
-	}
+        return this.dataAssinatura;
+    }
 
-	public void setStatus(Status status) {
-		this.status = status;
-	}
+    public void setDataAssinatura(final Date dataAssinatura) {
 
-	public String getObjeto() {
-		return objeto;
-	}
+        this.dataAssinatura = dataAssinatura;
+    }
 
-	public void setObjeto(String objeto) {
-		this.objeto = objeto;
-	}
+    public Date getInicioVigencia() {
 
-	public Empresa getEmpresa() {
-		return empresa;
-	}
+        return this.inicioVigencia;
+    }
 
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
-	}
+    public void setInicioVigencia(final Date inicioVigencia) {
 
-	public Gestor getGestor() {
-		return gestor;
-	}
+        this.inicioVigencia = inicioVigencia;
+    }
 
-	public void setGestor(Gestor gestor) {
-		this.gestor = gestor;
-	}
-	
-	
+    public Date getFinalVigencia() {
+
+        return this.finalVigencia;
+    }
+
+    public void setFinalVigencia(final Date finalVigencia) {
+
+        this.finalVigencia = finalVigencia;
+    }
+
+    public BigDecimal getValor() {
+
+        return this.valor;
+    }
+
+    public void setValor(final BigDecimal valor) {
+
+        this.valor = valor;
+    }
+
+    public Status getStatus() {
+
+        return this.status;
+    }
+
+    public void setStatus(final Status status) {
+
+        this.status = status;
+    }
+
+    public String getObjeto() {
+
+        return this.objeto;
+    }
+
+    public void setObjeto(final String objeto) {
+
+        this.objeto = objeto;
+    }
+
+    public Empresa getEmpresa() {
+
+        return this.empresa;
+    }
+
+    public void setEmpresa(final Empresa empresa) {
+
+        this.empresa = empresa;
+    }
+
+    public Gestor getGestor() {
+
+        return this.gestor;
+    }
+
+    public void setGestor(final Gestor gestor) {
+
+        this.gestor = gestor;
+    }
+
+    public Gestor getFiscal() {
+
+        return this.fiscal;
+    }
+
+    public void setFiscal(final Gestor fiscal) {
+
+        this.fiscal = fiscal;
+    }
 
 }
