@@ -45,7 +45,7 @@
 	<a class="navbar-brand mr-1" href="index.html">Gesthor</a>
 
 	<button class="btn btn-link btn-sm text-white order-1 order-sm-0"
-		id="sidebarToggle" href="#">
+		id="sidebarToggle" href="#" >
 		<i class="fas fa-bars"></i>
 	</button>
 
@@ -112,7 +112,7 @@
 
 		<!-- Sidebar -->
 		<ul class="sidebar navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="index.html">
+			<li class="nav-item"><a class="nav-link" th:href="@{/dashboard/home}">
 					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
 			</a></li>
 			<li class="nav-item dropdown"><a
@@ -228,7 +228,8 @@
 	<!-- Custom scripts for all pages-->
 	<script th:src="@{/js/sb-admin.min.js}"></script>
 	
-	<script type="text/javascript">
+
+<script type="text/javascript">
 			
 			$(document).ready(function(){
 				
@@ -253,9 +254,17 @@
 					}
 				});
 				
+				$('#gestor').change(function(){    
+					var teste = $('#gestor').val();
+					$("#fiscal option[value='"+teste+"']").remove();
+					$("#divFical").show();
+					$("#divFical").removeAttr("hidden");
+				});
+		
 			});
 	
 			</script>		
+	
 	
 
 </body>
