@@ -1,49 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
 </head>
-<ul class="sidebar navbar-nav"
-	th:fragment="sidebar">
-	
-	<li class="nav-item"><a class="nav-link"
-		th:href="@{/dashboard/home}"> <i
-			class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
-	</a></li>
-	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
-		href="#" id="contratosDropdown" role="button" data-toggle="dropdown"
-		aria-haspopup="true" aria-expanded="false"> <i
-			class="fas fa-file-contract"></i> <span>Contratos</span>
-	</a>
+<ul class="sidebar navbar-nav" th:fragment="sidebar">
+
+	<li th:classappend="${#request.requestURI == '/dashboard/home'} ? 'nav-item active' : 'nav-item' "><a class="nav-link" th:href="@{/dashboard/home}"> <i class="fas fa-fw fa-tachometer-alt"></i>
+			<span>Dashboard</span>
+		</a></li>
+	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="contratosDropdown" role="button"
+		 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-file-contract"></i> <span>Contratos</span>
+		</a>
 		<div class="dropdown-menu" aria-labelledby="contratosDropdown">
 			<a class="dropdown-item" th:href="@{/contratos/lista}">Exibir
 				Total</a> <a class="dropdown-item" th:href="@{/contratos/novo}">Novo
 				Contrato</a>
-		</div></li>
-	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
-		href="#" id="empresasDropdown" role="button" data-toggle="dropdown"
-		aria-haspopup="true" aria-expanded="false"> <i
-			class="fas fa-building"></i> <span>Empresas</span>
-	</a>
+		</div>
+	</li>
+	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="empresasDropdown" role="button"
+		 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-building"></i> <span>Empresas</span>
+		</a>
 		<div class="dropdown-menu" aria-labelledby="pagesDropdown">
 			<a class="dropdown-item" th:href="@{/empresas/lista}">Exibir
 				Total</a> <a class="dropdown-item" th:href="@{/empresas/novo}">Nova
 				Empresa</a>
-		</div></li>
-	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
-		href="#" id="contratosDropdown" role="button" data-toggle="dropdown"
-		aria-haspopup="true" aria-expanded="false"> <i
-			class="fas fa-users"></i> <span>Gestores</span>
-	</a>
+		</div>
+	</li>
+	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="contratosDropdown" role="button"
+		 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-users"></i> <span>Gestores</span>
+		</a>
 		<div class="dropdown-menu" aria-labelledby="pagesDropdown">
 			<a class="dropdown-item" th:href="@{/gestores/lista}">Exibir
 				Total</a> <a class="dropdown-item" th:href="@{/gestores/novo}">Novo
 				Gestor</a>
-		</div></li>
+		</div>
+	</li>
 
-	<!-- <li class="nav-item"><a class="nav-link" href="tables.html">
-					<i class="fas fa-fw fa-table"></i> <span>Tables</span>
-			</a></li> -->
+	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="contratosDropdown" role="button"
+		 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-file-download"></i> <span>Relatórios</span>
+		</a>
+		<div class="dropdown-menu" aria-labelledby="pagesDropdown">
+			<a class="dropdown-item" th:href="@{/contratos/relatorio}">
+				Total de Contratos</a>
+		</div>
+	</li>
+
+
 </ul>
 
 </html>

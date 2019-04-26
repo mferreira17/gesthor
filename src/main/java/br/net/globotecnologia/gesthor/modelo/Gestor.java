@@ -22,6 +22,15 @@ public class Gestor {
 	@Column
 	private String telefone;
 	
+	public Gestor() {
+	}
+
+	
+	public Gestor(String nome, String setor, String telefone) {
+		this.nome = nome;
+		this.setor = setor;
+		this.telefone = telefone;
+	}
 
 	public Long getId() {
 		return id;
