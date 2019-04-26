@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"  />
-</head>
-<body>
-	<footer class="footer" th:fragment="footer">
-	<div class="container">
-		<span class="text-muted">Total de Contratos .: <span th:text="${totalContratos}"/> || Valor Total .: R$ 10000 || Versão para Impressão .: <a th:href="@{/contratos/relatorio}" data-tippy="Clique para gerar Relatório" ><i class="fas fa-file-pdf"></i></a></span>
+<footer class="sticky-footer" th:fragment="footer">
+
+<div class="container my-auto">
+	<div class="copyright text-center my-auto">
+		<span>Made by <a href="#">@WillSoft</a> - Desde 2018 - EA
+			Software
+		</span>
 	</div>
-	</footer>
-</body>
+</div>
+
+</footer>
 </html>
