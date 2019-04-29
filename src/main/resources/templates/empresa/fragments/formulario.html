@@ -17,12 +17,12 @@
 					<div class="form-group">
 						<div class="form-row">
 							<div class="col-md-12">
-								<input type="hidden" th:field="*{id}" name="id" />
+								<input type="hidden" th:field="*{id}" name="id" /> 
 								<div class="form-label-group">
-									<label for="nome">Nome</label> <input type="text"
+									 <input type="text"
 										class="form-control" id="nome" name="nome"
 										autofocus="autofocus" th:field="*{nome}" placeholder="Nome"
-										required />
+										required="required"/><label for="nome">Nome</label>
 								</div>
 							</div>
 						</div>
@@ -32,9 +32,9 @@
 						<div class="form-row">
 							<div class="col-md-12">
 								<div class="form-label-group">
-									<label for="ramo">Ramo</label> <input type="text"
+									<input type="text"
 										class="form-control" id="ramo" name="ramo" th:field="*{ramo}"
-										placeholder="Ramo de Atividade" required />
+										placeholder="Ramo de Atividade" required /> <label for="ramo">Ramo</label>
 								</div>
 							</div>
 						</div>
@@ -44,9 +44,9 @@
 						<div class="form-row">
 							<div class="col-md-12">
 								<div class="form-label-group">
-									<label for="ano">Telefone</label> <input type="text"
+									 <input type="text"
 										class="form-control phone" id="telefone" name="telefone"
-										th:field="*{telefone}" placeholder="(99) 9999-9999" />
+										th:field="*{telefone}" placeholder="(99) 9999-9999" /> <label for="ano">Telefone</label>
 								</div>
 							</div>
 						</div>

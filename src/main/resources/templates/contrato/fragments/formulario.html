@@ -18,26 +18,26 @@
 					<div class="form-group">
 						<input type="hidden" th:field="*{id}" name="id" />
 						<div class="form-label-group">
-							<label for="numero" class="">Número</label> <input type="text"
+							 <input type="text"
 								class="form-control" id="numero" name="contrato.numero"
 								th:field="*{numero}" placeholder="Número do Contrato" autofocus="autofocus"
-								maxlength="7" required />
+								maxlength="7" required /> <label for="numero" class="">Número</label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<div class="form-label-group">
-							<label for="ano">Ano</label> <input type="text"
+							<input type="text"
 								class="form-control" id="ano" name="contrato.ano"
 								th:field="*{ano}" placeholder="Ano do Contrato" maxlength="4"
-								required />
+								required /> <label for="ano">Ano</label> 
 						</div>
 					</div>
 
 					<div class="form-group">
 						<div class="form-label-group">
 
-							<label for="gestor"></label> <select name="contrato.gestor"
+							 <select name="contrato.gestor"
 								class="form-control" id="gestor" th:field="*{gestor}" required>
 
 								<option value="">Selecione um Gestor...</option>
@@ -46,7 +46,7 @@
 									<option th:value="${gestor.id}" th:text="${gestor.nome}"></option>
 								</th:block>
 
-							</select>
+							</select><label for="gestor"></label>
 
 						</div>
 					</div>
@@ -54,7 +54,7 @@
 					<div class="form-group">
 						<div class="form-label-group" id="divFical" hidden>
 
-							<label for="fiscal"></label> <select name="contrato.fiscal"
+							 <select name="contrato.fiscal"
 								class="form-control" id="fiscal" th:field="*{fiscal}" required>
 
 								<option value="">Selecione um Fiscal...</option>
@@ -63,7 +63,7 @@
 									<option th:value="${fiscal.id}" th:text="${fiscal.nome}"></option>
 								</th:block>
 
-							</select>
+							</select><label for="fiscal"></label>
 
 						</div>
 					</div>
@@ -71,7 +71,7 @@
 					<div class="form-group">
 						<div class="form-label-group">
 
-							<label for="empresa"></label> <select
+							 <select
 								name="contrato.empresa" class="form-control" id="empresa"
 								th:field="*{empresa}" required>
 
@@ -81,63 +81,63 @@
 									<option th:value="${empresa.id}" th:text="${empresa.nome}"></option>
 								</th:block>
 
-							</select>
+							</select><label for="empresa"></label>
 
 						</div>
 					</div>
 
 					<div class="form-group">
 						<div class="form-label-group">
-							<label for="objeto">Objeto</label> <input type="text"
+							<input type="text"
 								class="form-control" id="objeto" maxlength="100"
 								th:field="*{objeto}" name="contrato.objeto"
-								placeholder="Objeto do Contrato" required />
+								placeholder="Objeto do Contrato" required /><label for="objeto">Objeto</label> 
 						</div>
 					</div>
 
 					<div class="form-group">
 						<div class="form-label-group">
-							<label for="valor">Valor do Contrato (R$)</label> <input
+							 <input
 								type="text" th:field="*{valor}" class="form-control money"
-								id="valor" placeholder="Valor do Contrato" required />
+								id="valor" placeholder="Valor do Contrato" required /><label for="valor">Valor do Contrato (R$)</label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<div class="form-label-group">
-							<label for="dataAssinatura">Data de Assinatura</label> <input
+							<input
 								th:field="*{dataAssinatura}" type="text"
 								name="contrato.dataAssinatura" id="dataAssinatura"
 								class="form-control data datepicker" placeholder="DD/MM/AAAA"
-								required />
+								required /><label for="dataAssinatura">Data de Assinatura</label> 
 						</div>
 					</div>
 
 					<div class="form-group">
 						<div class="form-label-group">
-							<label for="inicioVigencia">Inicio de Vigência do
-								Contrato</label> <input th:field="*{inicioVigencia}" type="text"
+							 <input th:field="*{inicioVigencia}" type="text"
 								name="contrato.inicioVigencia" id="inicioVigencia"
 								class="form-control data datepicker" placeholder="DD/MM/AAAA"
-								required />
+								required /><label for="inicioVigencia">Inicio de Vigência do
+								Contrato</label>
 
 						</div>
 					</div>
 
 					<div class="form-group">
 						<div class="form-label-group">
-							<label for="finalVigencia">Final de Vigência do Contrato</label>
+							
 							<input th:field="*{finalVigencia}" type="text"
 								name="contrato.finalVigencia" id="finalVigencia"
 								class="form-control data datepicker" placeholder="DD/MM/AAAA"
-								required />
+								required /><label for="finalVigencia">Final de Vigência do Contrato</label>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<div class="form-label-group">
 
-							<label for="status"></label> <select
+							<select
 								name="contrato.status" id="status" class="form-control"
 								th:field="*{status}" required>
 
@@ -147,7 +147,7 @@
 									<option th:value="${status}" th:text="${status}"></option>
 								</th:block>
 
-							</select>
+							</select><label for="status"></label> 
 
 						</div>
 					</div>
