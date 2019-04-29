@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html layout:decorate="~{layout}">
+<html layout:decorate="~{template}">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
@@ -8,48 +8,68 @@
 
 	<section layout:fragment="corpo-central">
 
-	<div class="container table-responsive">
+	<div class="container-fluid">
 
-		<table class="table table-striped" id="tabela">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+			<li class="breadcrumb-item active">Contratos Cadastrados</li>
+		</ol>
 
-			<thead>
-				<tr scope="row">
-					<th>Número</th>
-					<th>Ano</th>
-					<th>Gestor</th>
-					<th>Contratada</th>
-					<th>Status</th>
-					<th>Ações</th>
-				</tr>
-			</thead>
+		<div class="card">
+			<div class="card-header">
+				<i class="fas fa-table"></i> Contratos Cadastrados
+			</div>
+			<div class="card-body">
+				<table class="table table-bordered table-hover table-sm" id="dataTable"
+					width="100%" cellspacing="0">
+					<thead>
+						<tr scope="row">
+							<th>Número</th>
+							<th>Ano</th>
+							<th>Gestor</th>
+							<th>Fiscal</th>
+							<th>Contratada</th>
+							<th>Status</th>
+							<th>Ações</th>
+						</tr>
+					</thead>
 
-			<tbody>
+					<tbody>
 
-				<th:block th:each="contrato : ${contratos}">
-				
-					<tr scope="row">
-						<td scope="col"><a href="#" data-tippy="Clique para visualizar este contrato"
-							th:text="${contrato.numero}"></a></td>
-						<td scope="col" th:text="${contrato.ano}"></td>
-						<td scope="col" th:text="${contrato.gestor.nome}"></td>
-						<td scope="col" th:text="${contrato.empresa.nome}"></td>
-						<td scope="col" th:text="${contrato.status}"></td>
-						<td scope="col">
-							<a th:href="@{/ocorrencias/lista/{id} (id=${contrato.id})}" data-tippy="Visualizar Ocorrências"><i class="fas fa-search"></i></a>&nbsp
-							<a href="#" data-tippy="Editar Contrato"><i class="fas fa-edit"></i></a>&nbsp
-							<a href="#" data-tippy="Cancelar Contrato"><i class="fas fa-ban"></i></a>
-						</td>
-							
-					</tr>
-				
-				</th:block>
+						<th:block th:each="contrato : ${contratos}">
 
-			</tbody>
+							<tr scope="row">
+								<td scope="col"><a href="#"
+									data-tippy="Clique para visualizar este contrato"
+									th:text="${contrato.numero}"></a></td>
+								<td scope="col" th:text="${contrato.ano}"></td>
+								<td scope="col" th:text="${contrato.gestor.nome}"></td>
+								<td scope="col" th:text="${contrato.fiscal.nome}"></td>
+								<td scope="col" th:text="${contrato.empresa.nome}"></td>
+								<td scope="col" th:text="${contrato.status}"></td>
+								<td scope="col"><a
+									th:href="@{/ocorrencias/lista/{id} (id=${contrato.id})}"
+									data-tippy="Visualizar Ocorrências"><i
+										class="fas fa-search"></i></a>&nbsp <a href="#"
+									data-tippy="Editar Contrato"><i class="fas fa-edit"></i></a>&nbsp
+									<a href="#" data-tippy="Cancelar Contrato"><i
+										class="fas fa-ban"></i></a></td>
 
-		</table>
+							</tr>
 
+						</th:block>
+
+					</tbody>
+
+				</table>
+			</div>
+			<div class="card-footer small text-muted">
+				<label style="float: left; width: 15%">Updated yesterday at
+					11:59 PM</label>
+			</div>
+		</div>
 	</div>
-
+<br />
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-offset-5 col-lg-2">
@@ -61,7 +81,6 @@
 		</div>
 	</div>
 
-	<footer th:replace="fragments/footer :: footer"> </footer>
 	</section>
 </body>
 </html>

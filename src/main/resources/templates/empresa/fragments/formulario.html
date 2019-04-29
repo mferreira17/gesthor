@@ -7,39 +7,62 @@
 <body>
 	<div th:fragment="formulario">
 
-		<form method="post" th:action="@{/empresas/salvar}"
-			th:object="${empresa}">
+		<div class="card">
+			<div class="card-header">Cadastro de Empresa</div>
+			<div class="card-body">
 
-			<div class="row">
-				<div class="form-group col-xs-6 row">
-					<input type="hidden" th:field="*{id}" name="id" /> <label
-						for="nome" class="">Nome</label> <input type="text"
-						class="form-control" id="nome" name="nome" th:field="*{nome}"
-						placeholder="Nome" required/>
-				</div>
+				<form method="post" th:action="@{/empresas/salvar}"
+					th:object="${empresa}">
+
+					<div class="form-group">
+						<div class="form-row">
+							<div class="col-md-12">
+								<input type="hidden" th:field="*{id}" name="id" />
+								<div class="form-label-group">
+									<label for="nome">Nome</label> <input type="text"
+										class="form-control" id="nome" name="nome"
+										autofocus="autofocus" th:field="*{nome}" placeholder="Nome"
+										required />
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="form-row">
+							<div class="col-md-12">
+								<div class="form-label-group">
+									<label for="ramo">Ramo</label> <input type="text"
+										class="form-control" id="ramo" name="ramo" th:field="*{ramo}"
+										placeholder="Ramo de Atividade" required />
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="form-row">
+							<div class="col-md-12">
+								<div class="form-label-group">
+									<label for="ano">Telefone</label> <input type="text"
+										class="form-control phone" id="telefone" name="telefone"
+										th:field="*{telefone}" placeholder="(99) 9999-9999" />
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<button type="submit" class="btn btn-primary btn-block">
+						<i class="far fa-save"></i>&nbsp Salvar
+					</button>
+				</form>
+				<br />
+				<button type="button" class="btn btn-danger btn-block"
+					onclick="window.location.href = 'lista';">
+					<i class="fas fa-times-circle"></i>&nbsp Cancelar
+				</button>
 			</div>
-
-			<div class="row">
-				<div class="form-group col-xs-6">
-					<label for="ramo">Ramo</label> <input type="text"
-						class="form-control" id="ramo" name="ramo"
-						th:field="*{ramo}" placeholder="Ramo de Atividade" required/>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="form-group col-xs-6">
-					<label for="ano">Telefone</label> <input type="text"
-						class="form-control phone" id="telefone" name="telefone"
-						th:field="*{telefone}" placeholder="(99) 9999-9999"/>
-				</div>
-			</div>
-
-			<button type="submit" class="btn btn-primary"><i class="far fa-save"></i>&nbsp Salvar</button>
-			<button type="button" class="btn btn-danger"
-				onclick="window.location.href = 'lista';"><i class="fas fa-times-circle"></i>&nbsp Cancelar</button>
-
-		</form>
+		</div>
 	</div>
 </body>
 </html>

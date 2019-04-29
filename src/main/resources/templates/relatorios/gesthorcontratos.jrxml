@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="gesthorcontratos" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ba7e00b4-ae17-46e6-8c90-c470e22953c3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<scriptlet name="scriptlet1" class="net.sf.jasperreports.engine.JRDefaultScriptlet"/>
+	<queryString>
+		<![CDATA[select c.id ,c.numero, upper(e.nome) empresa, upper(g.nome) gestor, c.objeto, c.valor, c.status from contrato c, empresa e , gestor g
+where c.empresa_id = e.id and c.gestor_id = g.id]]>
+	</queryString>
+	<field name="ID" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NUMERO" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="EMPRESA" class="java.lang.String"/>
+	<field name="GESTOR" class="java.lang.String"/>
+	<field name="OBJETO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="VALOR" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="STATUS" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="valor_total" class="java.lang.String"/>
+	<variable name="thorHammer" class="java.lang.String">
+		<initialValueExpression><![CDATA["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"]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="138" y="21" width="598" height="43" uuid="73302e7b-b5a3-4b4b-a373-cd4f6ea7b15e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GESTHOR - PODEROSA GESTÃO DE CONTRATOS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="14" width="100" height="50" uuid="aaa7f16c-79fa-42ab-9914-289149ae8e91"/>
+				<imageExpression><![CDATA[new java.io.StringBufferInputStream(new org.w3c.tools.codec.Base64Decoder($V{thorHammer}).processString())]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="114" height="20" uuid="dd726772-5bd3-4728-9944-7e56787cb0c5"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="114" y="0" width="114" height="20" uuid="775f8923-6d40-4cfd-8a38-ef5751633931"/>
+				<text><![CDATA[NUMERO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="0" width="114" height="20" uuid="50cee145-649c-4930-9a3d-313ecb2f625e"/>
+				<text><![CDATA[EMPRESA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="0" width="114" height="20" uuid="df1c522f-0716-43b2-aa05-e7e7eaf5973f"/>
+				<text><![CDATA[GESTOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="456" y="0" width="114" height="20" uuid="bd7e60da-9589-4d18-a376-78fad390b65e"/>
+				<text><![CDATA[OBJETO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="570" y="0" width="114" height="20" uuid="9c935d62-9a23-4830-a11e-fd67425aa24a"/>
+				<text><![CDATA[VALOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="684" y="0" width="114" height="20" uuid="0cedad9a-2fb7-44c8-92ba-5ffb817b37dd"/>
+				<text><![CDATA[STATUS]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="114" height="20" uuid="531c91bc-95a1-4fbf-9605-5df0c923fde0"/>
+				<textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="114" y="0" width="114" height="20" uuid="79129d93-9b58-4f6b-ad36-faa02ebfe5a9"/>
+				<textFieldExpression><![CDATA[$F{NUMERO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="228" y="0" width="114" height="20" uuid="d276a7fe-6a85-48e3-b1c9-cb993d160809"/>
+				<textFieldExpression><![CDATA[$F{EMPRESA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="342" y="0" width="114" height="20" uuid="688cf823-dc89-4135-9ada-73f9db398262"/>
+				<textFieldExpression><![CDATA[$F{GESTOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="456" y="0" width="114" height="20" uuid="75c2c376-e24f-408d-a372-e2c6dede93e7"/>
+				<textFieldExpression><![CDATA[$F{OBJETO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="570" y="0" width="114" height="20" uuid="a214f070-02a0-4cc1-8a69-5163376d12e1"/>
+				<textFieldExpression><![CDATA[$F{VALOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="684" y="0" width="114" height="20" uuid="a28a237d-8bee-45c0-a022-0bdac83e21e5"/>
+				<textFieldExpression><![CDATA[$F{STATUS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="644" y="34" width="80" height="20" uuid="df05415e-6651-40ac-9a48-1c8358be58fe"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="724" y="34" width="40" height="20" uuid="2e992fc0-c4a5-4288-aaad-549705ffe2a6"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

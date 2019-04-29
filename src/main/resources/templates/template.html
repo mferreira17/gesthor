@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymealeaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+<title>Gesthor - Gestão de Contratos Centralizada</title>
+
+
+<link th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"
+	rel="stylesheet" type="text/css" />
+
+
+<link th:href="@{/webjars/font-awesome/5.2.0/css/all.css}"
+	rel="stylesheet" type="text/css" />
+
+<link
+	th:href="@{/webjars/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css}"
+	rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css" />
+
+<!-- Custom styles for this template-->
+<link th:href="@{/css/sb-admin.min.css}" rel="stylesheet"
+	type="text/css" />
+
+<link rel="icon" th:href="@{/images/favicon.ico}" />
+
+</head>
+
+<body id="page-top">
+
+	<nav th:replace="fragments/top-navbar :: top-navbar"></nav>
+
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<ul th:replace="fragments/sidebar :: sidebar">
+		</ul>
+
+		<div id="content-wrapper">
+
+			<div class="container-fluid">
+
+				<section layout:fragment="corpo-central"> </section>
+
+			</div>
+			<!-- /.container-fluid -->
+
+			<footer th:replace="fragments/footer :: footer"></footer>
+
+			<!-- /.content-wrapper -->
+		</div>
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Select "Logout" below if you are ready
+					to end your current session.</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">Cancel</button>
+					<a class="btn btn-primary" href="login.html">Logout</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap core JavaScript-->
+
+
+	<script th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.bundle.min.js}"></script>
+	<script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
+	<script
+		th:src="@{/webjars/jquery-mask-plugin/1.14.15/dist/jquery.mask.min.js}"></script>
+	<script
+		th:src="@{/webjars/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js}"></script>
+	<script
+		th:src="@{/webjars/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.pt-BR.min.js}"></script>
+	<script type="text/javascript"
+		src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
+
+	<!-- Core plugin JavaScript-->
+	<script th:src="@{/js/jquery-easing/jquery.easing.min.js}"></script>
+
+	<!-- Custom scripts for all pages-->
+	<script th:src="@{/js/sb-admin.min.js}"></script>
+	
+	<!-- Scripts personalizados-->
+	<script th:src="@{/js/masks.min.js}"></script>
+	<script th:src="@{/js/datatable-trad.min.js}"></script>
+	<script th:src="@{/js/remove-fiscal.min.js}"></script>
+	
+</body>
+
+</html>

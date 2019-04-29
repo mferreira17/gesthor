@@ -22,6 +22,16 @@ public class Empresa {
 	@Column
 	private String telefone;
 
+	public Empresa() {
+		
+	}
+	
+	public Empresa(String nome, String ramo, String telefone) {
+		this.nome = nome;
+		this.ramo = ramo;
+		this.telefone = telefone;
+	}
+
 	public Long getId() {
 		return id;
 	}

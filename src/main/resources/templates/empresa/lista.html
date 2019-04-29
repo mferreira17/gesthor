@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html layout:decorate="~{layout}">
+<html layout:decorate="~{template}">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
@@ -8,48 +8,64 @@
 
 	<section layout:fragment="corpo-central">
 
-	<div class="container">
+	<div class="container-fluid">
 
-		<table class="table table-striped">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+			<li class="breadcrumb-item active">Empresas Cadastradas</li>
+		</ol>
 
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th>Ramo</th>
-					<th>Telefone</th>
-				</tr>
-			</thead>
-			
-			<tbody>
+		<div class="card mb-3">
+			<div class="card-header">
+				<i class="fas fa-table"></i> Empresas Cadastradas
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered" id="dataTable" width="100%"
+						cellspacing="0">
+						<thead>
+							<tr>
+								<th>Nome</th>
+								<th>Ramo</th>
+								<th>Telefone</th>
+							</tr>
+						</thead>
 
-			<th:block th:each="empresa : ${empresas}">
-			
-			<tr scope="row">
-				<td scope="col" th:text="${empresa.nome}"></td>
-				<td scope="col" th:text="${empresa.ramo}"></td>
-				<td scope="col" th:text="${empresa.telefone}"></td>
-			</tr>
-			
-			</th:block>
-		
-			</tbody>
+												<tbody>
 
-		</table>
+													<th:block th:each="empresa : ${empresas}">
 
-	</div>
+														<tr scope="row">
+															<td scope="col" th:text="${empresa.nome}"></td>
+															<td scope="col" th:text="${empresa.ramo}"></td>
+															<td scope="col" th:text="${empresa.telefone}"></td>
+														</tr>
 
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-offset-5 col-lg-2">
-			<button class="btn btn-primary btn-block"
-				onclick="javascript:window.location.href = '/empresas/novo'">
-				<i class="fas fa-plus-circle"></i>&nbsp Nova Empresa
-			</button>
+													</th:block>
+
+												</tbody>
+
+					</table>
+				</div>
+			</div>
+			<div class="card-footer small text-muted">Updated yesterday at
+				11:59 PM</div>
 		</div>
 	</div>
+
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-offset-5 col-lg-2">
+				<button class="btn btn-primary btn-block"
+					onclick="javascript:window.location.href = '/empresas/novo'">
+					<i class="fas fa-plus-circle"></i>&nbsp Nova Empresa
+				</button>
+			</div>
+		</div>
 	</div>
 
-</section>
+	</section>
 
 </body>
 </html>

@@ -68,6 +68,13 @@
 					}
 				});
 				
+				$('#gestor').change(function(){    
+					var teste = $('#gestor').val();
+					$("#fiscal option[value='"+teste+"']").remove();
+					$("#divFical").show();
+					$("#divFical").removeAttr("hidden");
+				});
+		
 			});
 	
 			</script>		
