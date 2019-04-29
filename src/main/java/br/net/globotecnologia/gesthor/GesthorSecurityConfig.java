@@ -21,7 +21,7 @@ public class GesthorSecurityConfig extends WebSecurityConfigurerAdapter {
 		 * acessar o que estiver abaixo de /contratos, /empresas e /gestores. Ao final
 		 * pede para adicionar o formulario de login
 		 */
-		http.authorizeRequests().antMatchers("/").permitAll()
+		http.authorizeRequests().antMatchers("/","/css/**", "/js/**","/images/**").permitAll()
 				.antMatchers("/contratos/**", "/empresas/**", "/gestores/**", "/ocorrencias/**").hasRole("GESTOR")
 				.anyRequest().authenticated().and().formLogin().and().logout()
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/");
