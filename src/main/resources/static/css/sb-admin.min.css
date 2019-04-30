@@ -8417,7 +8417,7 @@ body {
 }
 .sidebar .nav-item.dropdown .dropdown-toggle::after {
     display: block;
-    margin-top: -20px;
+  /*  margin-top: -20px;*/
 }
 .sidebar.toggled {
     overflow: visible;
