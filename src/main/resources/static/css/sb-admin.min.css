@@ -8544,8 +8544,7 @@ footer.sticky-footer .copyright {
 }
 @media (min-width:768px) {
     footer.sticky-footer {
-     /*width: calc(100% - 225px);*/
-    width: 100%;
+    width: calc(100% - 225px);
 }
 }body.sidebar-toggled footer.sticky-footer {
     width: 100%}
